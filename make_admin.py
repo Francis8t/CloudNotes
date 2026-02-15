@@ -1,3 +1,5 @@
+# This script promotes a user to admin status. Run it once after creating the user.
+
 from app import app
 from models import db, User
 
