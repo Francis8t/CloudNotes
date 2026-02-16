@@ -120,6 +120,8 @@ architecture.
 -   Jinja2
 -   REST APIs
 -   SMTP (Email Integration)
+-   PostgreSQL (Production-ready relational database)
+-   Flask-Migrate (Database schema version control)
 
 ------------------------------------------------------------------------
 

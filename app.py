@@ -7,7 +7,7 @@ import requests
 import os
 from dotenv import load_dotenv
 from email_utils import send_email
-from extensions import db, login_manager
+from extensions import db, login_manager, migrate
 
 load_dotenv()
 
@@ -18,6 +18,9 @@ def create_app():
     db.init_app(app)
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"
+    
+    # Initialize Flask-Migrate with the Flask application and SQLAlchemy database instance. This allows for handling database migrations, which is essential for managing changes to the database schema over time.
+    migrate.init_app(app, db)
 
     # User loader callback for Flask-Login to load a user from the database based on their user ID. This function is essential for managing user sessions and authentication.
     @login_manager.user_loader
